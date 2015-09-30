@@ -1,0 +1,35 @@
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export PATH="$PATH:/Applications/Firefox.app/Contents/MacOS"
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+[[ -s "$HOME/.nvm/nvm.sh" ]] && . "$HOME/.nvm/nvm.sh"
+[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
+
+
+
+# Aliases
+alias be="bundle exec"
+
+alias gst="git status"
+alias gb="git branch"
+alias gco="git checkout"
+alias gl="git log"
+alias gd="git diff"
+
+# PostgreSQL
+alias start_psql="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
+alias stop_psql="pg_ctl -D /usr/local/var/postgres stop"
+
+# Docker
+alias docker_shell_init='eval "$(boot2docker shellinit)"'
+
+# Golang
+export GOPATH="$HOME/Documents/go"
+
+# added by travis gem
+[ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
+
+# Save current directory when opening new tab in zsh
+# http://superuser.com/questions/232835/open-a-new-tab-in-the-same-directory
+precmd () {print -Pn "\e]2; %~/ \a"}
+preexec () {print -Pn "\e]2; %~/ \a"}
